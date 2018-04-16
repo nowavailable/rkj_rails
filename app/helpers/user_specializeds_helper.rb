@@ -1,0 +1,2 @@
+module UserSpecializedsHelper
+end

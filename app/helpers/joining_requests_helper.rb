@@ -1,0 +1,2 @@
+module JoiningRequestsHelper
+end

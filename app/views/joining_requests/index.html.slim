@@ -1,0 +1,19 @@
+h1 Listing joining_requests
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @joining_requests.each do |joining_request|
+      tr
+        td = link_to 'Show', joining_request
+        td = link_to 'Edit', edit_joining_request_path(joining_request)
+        td = link_to 'Destroy', joining_request, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Joining request', new_joining_request_path

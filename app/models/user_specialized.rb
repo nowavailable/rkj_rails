@@ -1,0 +1,2 @@
+class UserSpecialized < ApplicationRecord
+end

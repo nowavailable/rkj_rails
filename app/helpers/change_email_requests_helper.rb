@@ -1,0 +1,2 @@
+module ChangeEmailRequestsHelper
+end

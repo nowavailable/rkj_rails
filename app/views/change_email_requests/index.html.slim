@@ -1,0 +1,19 @@
+h1 Listing change_email_requests
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @change_email_requests.each do |change_email_request|
+      tr
+        td = link_to 'Show', change_email_request
+        td = link_to 'Edit', edit_change_email_request_path(change_email_request)
+        td = link_to 'Destroy', change_email_request, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Change email request', new_change_email_request_path

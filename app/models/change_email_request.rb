@@ -1,0 +1,2 @@
+class ChangeEmailRequest < ApplicationRecord
+end

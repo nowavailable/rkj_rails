@@ -1,0 +1,2 @@
+module Admin::UserSpecializedHelper
+end

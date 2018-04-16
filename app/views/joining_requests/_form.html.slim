@@ -1,0 +1,9 @@
+= form_for @joining_request do |f|
+  - if @joining_request.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@joining_request.errors.count, "error")} prohibited this joining_request from being saved:"
+      ul
+        - @joining_request.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit
