@@ -1,0 +1,2 @@
+class AuthHandlerFactory
+end
