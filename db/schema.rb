@@ -17,21 +17,25 @@ ActiveRecord::Schema.define(version: 2018_04_16_055226) do
     t.integer "seq_num", null: false
     t.text "body", null: false
     t.string "anchor", null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
+    t.bigint "user_specializeds_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id", "seq_num"], name: "index_answers_on_question_id_and_seq_num", unique: true
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+    t.index ["user_specializeds_id"], name: "index_answers_on_user_specializeds_id"
   end
 
   create_table "change_email_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.string "email", null: false
     t.string "token", null: false
     t.timestamp "token_expired_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "created_at", null: false
     t.timestamp "verified_at"
     t.index ["token"], name: "index_change_email_requests_on_token", unique: true
+    t.index ["user_id"], name: "index_change_email_requests_on_user_id"
   end
 
   create_table "joining_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

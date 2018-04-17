@@ -28,7 +28,8 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
       t.integer :seq_num, null: false
       t.text :body, null: false
       t.string :anchor, null: false
-      t.references :user
+      t.references :user, null: false
+      t.references :user_specializeds
       t.timestamps
     end
     add_index :answers, [:question_id, :seq_num], unique:true
@@ -43,6 +44,7 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
     add_index :joining_requests, [:token], unique:true
 
     create_table :change_email_requests do |t|
+      t.references :user, null: false
       t.string :email, null: false
       t.string :token, null: false
       t.timestamp :token_expired_at, null: false
