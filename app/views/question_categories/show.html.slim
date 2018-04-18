@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Label:
+  = @question_category.label
+p
+  strong Is active:
+  = @question_category.is_active
+
+=> link_to 'Edit', edit_question_category_path(@question_category)
+'|
+=< link_to 'Back', question_categories_path
