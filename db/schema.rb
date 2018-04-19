@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_19_041902) do
+ActiveRecord::Schema.define(version: 2018_04_19_045959) do
 
   create_table "acknowledgements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "body", null: false
@@ -64,6 +64,26 @@ ActiveRecord::Schema.define(version: 2018_04_19_041902) do
     t.index ["user_id"], name: "index_mentors_on_user_id"
   end
 
+  create_table "notification_sends", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "notification_id", null: false
+    t.timestamp "sent_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notification_id"], name: "index_notification_sends_on_notification_id"
+  end
+
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "message_body", null: false
+    t.integer "dst_user_id", null: false
+    t.integer "src_event_id", null: false
+    t.string "src_event_type", null: false
+    t.integer "src_user_id"
+    t.boolean "is_read", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dst_user_id", "src_event_id", "src_event_type"], name: "idx_notifications", unique: true
+  end
+
   create_table "question_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "label", null: false
     t.boolean "is_active", default: true, null: false
@@ -91,6 +111,15 @@ ActiveRecord::Schema.define(version: 2018_04_19_041902) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["joining_request_id"], name: "index_users_on_joining_request_id"
     t.index ["login"], name: "index_users_on_login", unique: true
+  end
+
+  create_table "votings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "answer_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_votings_on_answer_id"
+    t.index ["user_id"], name: "index_votings_on_user_id"
   end
 
 end
