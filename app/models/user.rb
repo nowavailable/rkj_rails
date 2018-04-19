@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   belongs_to :joining_request
   has_many :questions
+  has_many :acknowledgements
 
   validates :login, presence: true, length: { maximum: 256 }
   validates :email, presence: true, length: { maximum: 256 }

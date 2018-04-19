@@ -1,0 +1,21 @@
+h1 Listing acknowledgements
+
+table
+  thead
+    tr
+      th Body
+      th
+      th
+      th
+
+  tbody
+    - @acknowledgements.each do |acknowledgement|
+      tr
+        td = acknowledgement.body
+        td = link_to 'Show', acknowledgement
+        td = link_to 'Edit', edit_acknowledgement_path(acknowledgement)
+        td = link_to 'Destroy', acknowledgement, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Acknowledgement', new_acknowledgement_path

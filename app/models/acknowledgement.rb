@@ -1,0 +1,2 @@
+class Acknowledgement < ApplicationRecord
+end

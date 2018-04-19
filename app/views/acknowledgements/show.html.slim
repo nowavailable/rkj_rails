@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Body:
+  = @acknowledgement.body
+
+=> link_to 'Edit', edit_acknowledgement_path(@acknowledgement)
+'|
+=< link_to 'Back', acknowledgements_path
