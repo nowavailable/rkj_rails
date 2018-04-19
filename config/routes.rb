@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :answers, only: [:create,:update,:destroy]
     resources :users, only: [:show]
     resources :acknowledgements, only: [:create,:update,:destroy]
+    resources :votings, only: [:create]
+    resources :notifications, only: [:index]
   end
   namespace "admin" do
     resources :users
