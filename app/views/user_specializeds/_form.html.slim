@@ -1,9 +1,0 @@
-= form_for @user_specialized do |f|
-  - if @user_specialized.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@user_specialized.errors.count, "error")} prohibited this user_specialized from being saved:"
-      ul
-        - @user_specialized.errors.full_messages.each do |message|
-          li = message
-
-  .actions = f.submit

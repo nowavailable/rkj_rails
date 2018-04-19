@@ -1,5 +1,4 @@
-class UserSpecialized < ApplicationRecord
+class Mentor < ApplicationRecord
   belongs_to :user
   has_many :answers
-
 end

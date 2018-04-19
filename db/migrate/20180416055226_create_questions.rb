@@ -11,7 +11,7 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
     add_index :users, [:email], unique:true
     add_index :users, [:login], unique:true
 
-    create_table :user_specializeds do |t|
+    create_table :mentors do |t|
       t.references :user, null: false
       t.timestamps
     end
@@ -29,7 +29,7 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
       t.text :body, null: false
       t.string :anchor, null: false
       t.references :user, null: false
-      t.references :user_specializeds
+      t.references :mentor
       t.timestamps
     end
     add_index :answers, [:question_id, :seq_num], unique:true

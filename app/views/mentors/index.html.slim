@@ -1,0 +1,19 @@
+h1 Listing mentors
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @mentors.each do |mentor|
+      tr
+        td = link_to 'Show', mentor
+        td = link_to 'Edit', edit_mentor_path(mentor)
+        td = link_to 'Destroy', mentor, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New mentor', new_mentor_path

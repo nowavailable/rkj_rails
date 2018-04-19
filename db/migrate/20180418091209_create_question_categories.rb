@@ -6,6 +6,6 @@ class CreateQuestionCategories < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    # add_column :questions, :question_category_id, :integer, null: false
+    add_column :questions, :question_category_id, :integer, null: false
   end
 end

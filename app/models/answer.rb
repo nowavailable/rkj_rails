@@ -1,6 +1,6 @@
 class Answer < ApplicationRecord
   belongs_to :question
-  belongs_to :user_specialized
+  belongs_to :mentor
   belongs_to :user
 
   validates :question_id, presence: true

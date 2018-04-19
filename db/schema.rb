@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 2018_04_18_091209) do
     t.text "body", null: false
     t.string "anchor", null: false
     t.bigint "user_id", null: false
-    t.bigint "user_specializeds_id"
+    t.bigint "mentor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["mentor_id"], name: "index_answers_on_mentor_id"
     t.index ["question_id", "seq_num"], name: "index_answers_on_question_id_and_seq_num", unique: true
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
-    t.index ["user_specializeds_id"], name: "index_answers_on_user_specializeds_id"
   end
 
   create_table "change_email_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 2018_04_18_091209) do
     t.index ["token"], name: "index_joining_requests_on_token", unique: true
   end
 
+  create_table "mentors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_mentors_on_user_id"
+  end
+
   create_table "question_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "label", null: false
     t.boolean "is_active", default: true, null: false
@@ -62,13 +69,6 @@ ActiveRecord::Schema.define(version: 2018_04_18_091209) do
     t.datetime "updated_at", null: false
     t.integer "question_category_id", null: false
     t.index ["user_id"], name: "index_questions_on_user_id"
-  end
-
-  create_table "user_specializeds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_user_specializeds_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

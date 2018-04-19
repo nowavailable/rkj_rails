@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  resources :question_categories
   resources :change_email_requests
   resources :joining_requests
-  resources :user_specializeds
   resources :users
+  resources :mentors
 
   namespace :api, {format: "json"} do
     resources :questions, except: [:new]
@@ -12,9 +11,10 @@ Rails.application.routes.draw do
   end
   namespace "admin" do
     resources :users
-    resources :user_specializeds
+    resources :mentors
     resources :questions
     resources :answers
+    resources :question_categories
   end
 
   get 'login', to: 'logins#login'
