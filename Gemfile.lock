@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/rails-api/active_model_serializers.git
+  revision: 95f832fd0e57ad5c960076c851bf553b88fb4430
+  ref: 95f832fd0e57ad5c960076c851bf553b88fb4430
+  specs:
+    active_model_serializers (0.10.3)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi (= 0.1.1.beta2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -81,6 +92,8 @@ GEM
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       xpath (~> 3.0)
+    case_transform (0.2)
+      activesupport
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (1.2.0)
@@ -117,6 +130,9 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (1.8.6)
+    jsonapi (0.1.1.beta2)
+      json (~> 1.8)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -243,6 +259,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers!
   better_errors
   binding_of_caller
   bootsnap (>= 1.1.0)

@@ -3,11 +3,13 @@ Rails.application.routes.draw do
   resources :change_email_requests
   resources :joining_requests
   resources :user_specializeds
-  resources :questions
-  resources :answers
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  namespace :api, {format: "json"} do
+    resources :questions, except: [:new]
+    resources :answers, only: [:create,:update,:destroy]
+    resources :users, only: [:show]
+  end
   namespace "admin" do
     resources :users
     resources :user_specializeds

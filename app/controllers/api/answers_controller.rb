@@ -1,24 +1,27 @@
-class AnswersController < ApplicationController
-  before_action :set_answer, only: [:show, :edit, :update, :destroy]
+class Api::AnswersController < Api::BaseController
+  before_action :set_answer, only: [:update, :destroy]
 
   # GET /answers
   # GET /answers.json
   def index
-    @answers = Answer.all
+    raise InternalError
   end
 
   # GET /answers/1
   # GET /answers/1.json
   def show
+    raise InternalError
   end
 
   # GET /answers/new
   def new
-    @answer = Answer.new
+    # @answer = Answer.new
+    raise InternalError
   end
 
   # GET /answers/1/edit
   def edit
+    raise InternalError
   end
 
   # POST /answers
@@ -62,13 +65,13 @@ class AnswersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_answer
-      @answer = Answer.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_answer
+    @answer = Answer.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def answer_params
-      params.fetch(:answer, {})
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def answer_params
+    params.fetch(:answer, {})
+  end
 end
