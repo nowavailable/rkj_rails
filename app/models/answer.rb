@@ -2,7 +2,7 @@ class Answer < ApplicationRecord
   belongs_to :question
   belongs_to :mentor
   belongs_to :user
-  has_many :acknowledgement
+  has_many :acknowledgement, dependent: :restrict_with_exception
 
   validates :question_id, presence: true
   validates :user_id, presence: true
